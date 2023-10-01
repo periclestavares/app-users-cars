@@ -26,4 +26,14 @@ export class CarService {
     const url = `${this.API}/${id}`
     return this.http.delete<Car>(url)
   }
+
+  getById(id: number): Observable<Car> {
+    const url = `${this.API}/${id}`
+    return this.http.get<Car>(url)
+  }
+
+  update(car: Car): Observable<Car> {
+    const url = `${this.API}/${car.id}`
+    return this.http.put<Car>(url, car)
+  }
 }

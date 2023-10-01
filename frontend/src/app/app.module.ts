@@ -14,6 +14,7 @@ import { ErrorInterceptor } from './interceptors/error-interceptor';
 import { CreateUserComponent } from './user/create-user/create-user.component';
 import { EditUserComponent } from './user/edit-user/edit-user.component';
 import { ListUserComponent } from './user/list-user/list-user.component';
+import { EditCarComponent } from './car/edit-car/edit-car.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ListUserComponent } from './user/list-user/list-user.component';
     EditUserComponent,
     SignInComponent,
     ListCarComponent,
-    CreateCarComponent
+    CreateCarComponent,
+    EditCarComponent
   ],
   imports: [
     BrowserModule,

@@ -7,6 +7,7 @@ import { authGuard } from './guards/auth-guard';
 import { CreateUserComponent } from './user/create-user/create-user.component';
 import { EditUserComponent } from './user/edit-user/edit-user.component';
 import { ListUserComponent } from './user/list-user/list-user.component';
+import { EditCarComponent } from './car/edit-car/edit-car.component';
 
 const routes: Routes = [
   {
@@ -33,6 +34,11 @@ const routes: Routes = [
   {
     path: 'createCar',
     component: CreateCarComponent,
+    canActivate: [authGuard]
+  },
+  {
+    path: 'car/edit/:id',
+    component: EditCarComponent,
     canActivate: [authGuard]
   },
 ];

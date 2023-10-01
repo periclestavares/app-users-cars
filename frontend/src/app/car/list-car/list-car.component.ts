@@ -29,4 +29,8 @@ export class ListCarComponent implements OnInit {
     })
   }
 
+  update(id : number) {
+    this.router.navigate([`car/edit/${id}`])
+  }
+
 }

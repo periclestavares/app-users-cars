@@ -14,7 +14,7 @@
     <td>{{car.model}}</td>
     <td>{{car.color}}</td>
     <td>
-      <button>Atualizar</button>
+      <button (click)="update(car.id!)">Atualizar</button>
       <button (click)="delete(car.id!)">Excluir</button>
     </td>
   </tr>
