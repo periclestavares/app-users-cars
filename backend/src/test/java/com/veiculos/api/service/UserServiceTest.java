@@ -12,6 +12,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -32,6 +33,9 @@ public class UserServiceTest {
 
     @MockBean
     private UserRepository userRepository;
+
+    @MockBean
+    private PasswordEncoder encoder;
 
     private static User generateUser() {
         return new User(null, "First Name", "Last Name", "email@email.com", LocalDate.now(), "login", "password", "1234566", LocalDateTime.now(), null);
@@ -74,7 +78,9 @@ public class UserServiceTest {
         User user = generateUser();
         UserDTO userDTO = new UserDTO(null, "First Name", "Last Name", "email@email.com", LocalDate.now(), "login", "password", "1234566", LocalDateTime.now(), null);
         Mockito.when(userRepository.save(Mockito.any())).thenReturn(user);
+        Mockito.when(encoder.encode("password")).thenReturn("encryptPassword");
         UserDTO addedUserDTO = service.add(userDTO);
+        user.setPassword("encryptPassword");
         validateUserDTO(addedUserDTO, user);
     }
 
@@ -100,7 +106,9 @@ public class UserServiceTest {
         user.setId(1L);
         UserDTO userDTO = new UserDTO(null, "First Name", "Last Name", "email@email.com", LocalDate.now(), "login", "password", "1234566", LocalDateTime.now(), null);
         Mockito.when(userRepository.save(Mockito.any())).thenReturn(user);
+        Mockito.when(encoder.encode("password")).thenReturn("encryptPassword");
         UserDTO updatedUserDTO = service.update(1L, userDTO);
+        user.setPassword("encryptPassword");
         validateUserDTO(updatedUserDTO, user);
     }
 

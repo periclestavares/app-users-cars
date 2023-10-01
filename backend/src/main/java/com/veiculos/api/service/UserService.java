@@ -8,6 +8,7 @@ import jakarta.persistence.EntityNotFoundException;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -27,6 +28,8 @@ public class UserService {
     private UserRepository repository;
     @Autowired
     private ModelMapper modelMapper;
+    @Autowired
+    private PasswordEncoder encoder;
 
 
     public List<UserDTO> getAll() {
@@ -57,6 +60,7 @@ public class UserService {
         if (!fieldsExists.isEmpty()) {
             throw new FieldExistsException(fieldsExists);
         }
+        user.setPassword(encoder.encode(user.getPassword()));
         repository.save(user);
 
         return modelMapper.map(user, UserDTO.class);
@@ -75,7 +79,7 @@ public class UserService {
         if (!fieldsExists.isEmpty()) {
             throw new FieldExistsException(fieldsExists);
         }
-
+        user.setPassword(encoder.encode(user.getPassword()));
         user.setId(id);
         repository.save(user);
 
