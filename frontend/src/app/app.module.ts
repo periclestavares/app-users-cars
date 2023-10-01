@@ -9,13 +9,15 @@ import { HeaderComponent } from './header/header.component';
 import { ListUserComponent } from './user/list-user/list-user.component';
 import { CreateUserComponent } from './user/create-user/create-user.component';
 import { ErrorInterceptor } from './interceptors/error-interceptor';
+import { EditUserComponent } from './user/edit-user/edit-user.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     ListUserComponent,
-    CreateUserComponent
+    CreateUserComponent,
+    EditUserComponent
   ],
   imports: [
     BrowserModule,

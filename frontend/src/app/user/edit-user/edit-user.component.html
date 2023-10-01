@@ -1,0 +1,26 @@
+<h3>Atualizar Usuário</h3>
+<form>
+  <label for="firstName">Nome</label>
+  <input name="firstName" type="text" [(ngModel)]="user.firstName">
+  <br />
+  <label for="lastName">Sobrenome</label>
+  <input name="lastName" type="text" [(ngModel)]="user.lastName">
+  <br />
+  <label for="email">E-mail</label>
+  <input name="email" type="text" [(ngModel)]="user.email">
+  <br />
+  <label for="birthday">Data de Nascimento</label>
+  <input name="birthday" type="text" [(ngModel)]="user.birthday">
+  <br />
+  <label for="Login">Login</label>
+  <input name="login" type="text" [(ngModel)]="user.login">
+  <br />
+  <label for="password">Senha</label>
+  <input name="password" type="password" [(ngModel)]="user.password">
+  <br />
+  <label for="phone">Telefone</label>
+  <input name="phone" type="text" [(ngModel)]="user.phone">
+  <br />
+  <button (click)="update()" class="botao">Save</button>
+  <button (click)="cancel()" class="botao">Cancel</button>
+</form>

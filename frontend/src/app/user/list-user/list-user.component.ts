@@ -27,4 +27,8 @@ export class ListUserComponent implements OnInit {
       this.ngOnInit();
     })
   }
+
+  update(id : number) {
+    this.router.navigate([`user/edit/${id}`])
+  }
 }

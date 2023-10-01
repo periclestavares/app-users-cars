@@ -26,4 +26,14 @@ export class UserService {
     const url = `${this.API}/${id}`
     return this.http.delete<User>(url)
   }
+
+  getById(id: number): Observable<User> {
+    const url = `${this.API}/${id}`
+    return this.http.get<User>(url)
+  }
+
+  update(user: User): Observable<User> {
+    const url = `${this.API}/${user.id}`
+    return this.http.put<User>(url, user)
+  }
 }
