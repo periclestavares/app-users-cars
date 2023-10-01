@@ -10,12 +10,12 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 /**
  * Handler for the exceptions throwed by the app
+ *
  * @author Pericles Tavares
  */
 @RestControllerAdvice
@@ -39,10 +39,8 @@ public class CustomExceptionHandler {
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(HttpMessageNotReadableException.class)
-    public Map<String, List<ErrorDTO>> handleValidationExceptions(HttpMessageNotReadableException ex) {
-        Map<String, List<ErrorDTO>> errors = new HashMap<>();
-        errors.put("errors", List.of(new ErrorDTO(missingField, "1")));
-        return errors;
+    public Map<String, List<ErrorDTO>> handleValidationExceptions() {
+        return Map.of("errors", List.of(new ErrorDTO(missingField, "1")));
     }
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
@@ -58,9 +56,7 @@ public class CustomExceptionHandler {
 
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     @ExceptionHandler(Exception.class)
-    public Map<String, List<ErrorDTO>> handleErrorAuthentication(Exception e) {
-        Map<String, List<ErrorDTO>> errors = new HashMap<>();
-        errors.put("errors", List.of(new ErrorDTO(HttpStatus.INTERNAL_SERVER_ERROR.getReasonPhrase(), "8")));
-        return errors;
+    public Map<String, List<ErrorDTO>> handleErrorAuthentication() {
+        return Map.of("errors", List.of(new ErrorDTO(HttpStatus.INTERNAL_SERVER_ERROR.getReasonPhrase(), "8")));
     }
 }

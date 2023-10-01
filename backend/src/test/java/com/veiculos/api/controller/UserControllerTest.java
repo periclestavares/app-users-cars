@@ -28,7 +28,6 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
  * Test for the User Controller
  * @author Pericles Tavares
  */
-
 @SpringBootTest
 @AutoConfigureMockMvc
 @AutoConfigureJsonTesters
