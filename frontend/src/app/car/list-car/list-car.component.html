@@ -1,0 +1,21 @@
+<h3>Carro</h3>
+<button style="margin-bottom: 10px;" routerLink="/createCar">Cadastrar</button>
+<table>
+  <tr>
+    <th>Ano</th>
+    <th>Placa</th>
+    <th>Modelo</th>
+    <th>Cor</th>
+    <th></th>
+  </tr>
+  <tr *ngFor="let car of listCars">
+    <td>{{car.carYear}}</td>
+    <td>{{car.licensePlate}}</td>
+    <td>{{car.model}}</td>
+    <td>{{car.color}}</td>
+    <td>
+      <button>Atualizar</button>
+      <button>Excluir</button>
+    </td>
+  </tr>
+</table>

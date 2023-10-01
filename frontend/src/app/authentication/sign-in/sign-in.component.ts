@@ -27,7 +27,7 @@ export class SignInComponent implements OnInit {
   authenticate() {
       this.authenticationService.authenticate(this.signIn).subscribe((token) => {
         this.tokenService.saveToken(token.token);
-        this.router.navigate(['/listUser'])
+        this.router.navigate(['/listCar'])
     });
   }
 
