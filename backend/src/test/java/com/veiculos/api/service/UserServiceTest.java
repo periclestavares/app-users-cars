@@ -9,6 +9,9 @@ import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -121,5 +124,18 @@ public class UserServiceTest {
     public void testDelete()  {
         service.delete(1L);
         Mockito.verify(userRepository, Mockito.times(1)).deleteById(Mockito.any());
+    }
+
+    @Test
+    public void testGetLoggedUser()  {
+        User user = generateUser();
+        user.setId(1L);
+        UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(user, null, user.getAuthorities());
+        SecurityContext securityContext = Mockito.mock(SecurityContext.class);
+        Mockito.when(securityContext.getAuthentication()).thenReturn(authentication);
+        SecurityContextHolder.setContext(securityContext);
+        Mockito.when(userRepository.findById(1L)).thenReturn(Optional.of(user));
+        UserDTO userDTO = service.getLoggedUser();
+        validateUserDTO(userDTO, user);
     }
 }

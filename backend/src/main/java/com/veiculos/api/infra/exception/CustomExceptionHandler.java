@@ -1,14 +1,18 @@
 package com.veiculos.api.infra.exception;
 
+import com.auth0.jwt.exceptions.JWTVerificationException;
+import com.auth0.jwt.exceptions.TokenExpiredException;
 import com.veiculos.api.dto.ErrorDTO;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.converter.HttpMessageNotReadableException;
+import org.springframework.security.authentication.InsufficientAuthenticationException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import javax.naming.AuthenticationException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -24,6 +28,15 @@ public class CustomExceptionHandler {
     private String missingField;
     @Value("${exist.field}")
     private String existFieldMessage;
+
+    @Value("${authentication.invalid}")
+    private String authenticationInvalid;
+
+    @Value("${token.invalid}")
+    private String tokenInvalid;
+
+    @Value("${token.expired}")
+    private String tokenExpired;
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(MethodArgumentNotValidException.class)
@@ -53,6 +66,23 @@ public class CustomExceptionHandler {
         return Map.of("errors", errors);
     }
 
+    @ResponseStatus(HttpStatus.UNAUTHORIZED)
+    @ExceptionHandler(TokenExpiredException.class)
+    public Map<String, List<ErrorDTO>> handleJWTExpiredToken() {
+        return Map.of("errors", List.of(new ErrorDTO(tokenExpired, "5")));
+    }
+
+    @ResponseStatus(HttpStatus.UNAUTHORIZED)
+    @ExceptionHandler({JWTVerificationException.class, InsufficientAuthenticationException.class})
+    public Map<String, List<ErrorDTO>> handleJWTInvalidToken() {
+        return Map.of("errors", List.of(new ErrorDTO(tokenInvalid, "6")));
+    }
+
+    @ResponseStatus(HttpStatus.UNAUTHORIZED)
+    @ExceptionHandler(AuthenticationException.class)
+    public Map<String, List<ErrorDTO>> handleAuthenticationException() {
+        return Map.of("errors", List.of(new ErrorDTO(authenticationInvalid, "7")));
+    }
 
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     @ExceptionHandler(Exception.class)

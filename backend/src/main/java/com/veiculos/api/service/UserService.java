@@ -7,6 +7,7 @@ import com.veiculos.api.repository.UserRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -17,6 +18,7 @@ import java.util.stream.Collectors;
 
 /**
  * Service with business logic for the User Entity
+ *
  * @author Péricles Tavares
  */
 @Service
@@ -31,7 +33,7 @@ public class UserService {
         return repository
                 .findAll()
                 .stream()
-                .map(u ->modelMapper.map(u, UserDTO.class))
+                .map(u -> modelMapper.map(u, UserDTO.class))
                 .collect(Collectors.toList());
     }
 
@@ -82,5 +84,11 @@ public class UserService {
 
     public void delete(Long id) {
         repository.deleteById(id);
+    }
+
+    public UserDTO getLoggedUser() {
+        Long userId = ((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getId();
+        User user = repository.findById(userId).get();
+        return modelMapper.map(user, UserDTO.class);
     }
 }
