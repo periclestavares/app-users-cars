@@ -1,6 +1,6 @@
 package com.veiculos.api.service;
 
-import com.veiculos.api.infra.authentication.AuthenticationService;
+import com.veiculos.api.infra.authentication.service.AuthenticationService;
 import com.veiculos.api.model.User;
 import com.veiculos.api.repository.UserRepository;
 import org.junit.jupiter.api.BeforeEach;

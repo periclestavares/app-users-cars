@@ -1,6 +1,6 @@
 package com.veiculos.api.service;
 
-import com.veiculos.api.infra.authentication.JWTAuthenticationService;
+import com.veiculos.api.infra.authentication.service.JWTAuthenticationService;
 import com.veiculos.api.model.User;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

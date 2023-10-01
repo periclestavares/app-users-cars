@@ -1,6 +1,8 @@
 package com.veiculos.api.infra.authentication;
 
 import com.auth0.jwt.exceptions.TokenExpiredException;
+import com.veiculos.api.infra.authentication.service.AuthenticationService;
+import com.veiculos.api.infra.authentication.service.JWTAuthenticationService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

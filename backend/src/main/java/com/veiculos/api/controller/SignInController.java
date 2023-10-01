@@ -1,8 +1,8 @@
 package com.veiculos.api.controller;
 
 import com.veiculos.api.dto.SignInDTO;
-import com.veiculos.api.infra.authentication.AuthenticationService;
-import com.veiculos.api.infra.authentication.JWTAuthenticationService;
+import com.veiculos.api.infra.authentication.service.AuthenticationService;
+import com.veiculos.api.infra.authentication.service.JWTAuthenticationService;
 import com.veiculos.api.model.User;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;

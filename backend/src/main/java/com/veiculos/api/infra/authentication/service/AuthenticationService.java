@@ -1,4 +1,4 @@
-package com.veiculos.api.infra.authentication;
+package com.veiculos.api.infra.authentication.service;
 
 import com.veiculos.api.model.User;
 import com.veiculos.api.repository.UserRepository;
