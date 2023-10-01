@@ -9,6 +9,10 @@ import java.util.Set;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+/**
+ * Test for User DTO
+ * @author Pericles Tavares
+ */
 public class UserDTOTest extends AbstractDTOTest {
     private static UserDTO generateValidDTO() {
         UserDTO dto = new UserDTO();
@@ -23,14 +27,14 @@ public class UserDTOTest extends AbstractDTOTest {
     }
 
     @Test
-    public void testNoValidations(){
+    public void testNoValidations() {
         UserDTO dto = generateValidDTO();
         Set<ConstraintViolation<UserDTO>> violations = validator.validate(dto);
         assertThat(violations.isEmpty()).isTrue();
     }
 
     @Test
-    public void testMissingFirstNameValidation(){
+    public void testMissingFirstNameValidation() {
         UserDTO dto = generateValidDTO();
         dto.setFirstName(null);
         Set<ConstraintViolation<UserDTO>> nullCheck = validator.validate(dto);
@@ -41,7 +45,7 @@ public class UserDTOTest extends AbstractDTOTest {
     }
 
     @Test
-    public void testSizeFirstNameValidation(){
+    public void testSizeFirstNameValidation() {
         UserDTO dto = generateValidDTO();
         dto.setFirstName(RandomStringUtils.random(251));
         Set<ConstraintViolation<UserDTO>> violations = validator.validate(dto);
@@ -49,7 +53,7 @@ public class UserDTOTest extends AbstractDTOTest {
     }
 
     @Test
-    public void testMissingLastNameValidation(){
+    public void testMissingLastNameValidation() {
         UserDTO dto = generateValidDTO();
         dto.setLastName(null);
         Set<ConstraintViolation<UserDTO>> nullCheck = validator.validate(dto);
@@ -60,7 +64,7 @@ public class UserDTOTest extends AbstractDTOTest {
     }
 
     @Test
-    public void testSizeLastNameValidation(){
+    public void testSizeLastNameValidation() {
         UserDTO dto = generateValidDTO();
         dto.setLastName(RandomStringUtils.random(251));
         Set<ConstraintViolation<UserDTO>> violations = validator.validate(dto);
@@ -68,7 +72,7 @@ public class UserDTOTest extends AbstractDTOTest {
     }
 
     @Test
-    public void testMissingEmailValidation(){
+    public void testMissingEmailValidation() {
         UserDTO dto = generateValidDTO();
         dto.setEmail(null);
         Set<ConstraintViolation<UserDTO>> nullCheck = validator.validate(dto);
@@ -79,7 +83,7 @@ public class UserDTOTest extends AbstractDTOTest {
     }
 
     @Test
-    public void testSizeEmailValidation(){
+    public void testSizeEmailValidation() {
         UserDTO dto = generateValidDTO();
         dto.setEmail(RandomStringUtils.random(251));
         Set<ConstraintViolation<UserDTO>> violations = validator.validate(dto);
@@ -87,7 +91,7 @@ public class UserDTOTest extends AbstractDTOTest {
     }
 
     @Test
-    public void testValidEmailValidation(){
+    public void testValidEmailValidation() {
         UserDTO dto = generateValidDTO();
         dto.setEmail("email.email@");
         Set<ConstraintViolation<UserDTO>> violations = validator.validate(dto);
@@ -95,7 +99,7 @@ public class UserDTOTest extends AbstractDTOTest {
     }
 
     @Test
-    public void testMissingBirthdayValidation(){
+    public void testMissingBirthdayValidation() {
         UserDTO dto = generateValidDTO();
         dto.setBirthday(null);
         Set<ConstraintViolation<UserDTO>> nullCheck = validator.validate(dto);
@@ -103,7 +107,7 @@ public class UserDTOTest extends AbstractDTOTest {
     }
 
     @Test
-    public void testMissingLoginValidation(){
+    public void testMissingLoginValidation() {
         UserDTO dto = generateValidDTO();
         dto.setLogin(null);
         Set<ConstraintViolation<UserDTO>> nullCheck = validator.validate(dto);
@@ -114,7 +118,7 @@ public class UserDTOTest extends AbstractDTOTest {
     }
 
     @Test
-    public void testSizeLoginValidation(){
+    public void testSizeLoginValidation() {
         UserDTO dto = generateValidDTO();
         dto.setLogin(RandomStringUtils.random(251));
         Set<ConstraintViolation<UserDTO>> violations = validator.validate(dto);
@@ -122,7 +126,7 @@ public class UserDTOTest extends AbstractDTOTest {
     }
 
     @Test
-    public void testMissingPasswordValidation(){
+    public void testMissingPasswordValidation() {
         UserDTO dto = generateValidDTO();
         dto.setPassword(null);
         Set<ConstraintViolation<UserDTO>> nullCheck = validator.validate(dto);
@@ -133,7 +137,7 @@ public class UserDTOTest extends AbstractDTOTest {
     }
 
     @Test
-    public void testSizePasswordValidation(){
+    public void testSizePasswordValidation() {
         UserDTO dto = generateValidDTO();
         dto.setPassword(RandomStringUtils.random(251));
         Set<ConstraintViolation<UserDTO>> violations = validator.validate(dto);
@@ -141,7 +145,7 @@ public class UserDTOTest extends AbstractDTOTest {
     }
 
     @Test
-    public void testMissingPhoneValidation(){
+    public void testMissingPhoneValidation() {
         UserDTO dto = generateValidDTO();
         dto.setPhone(null);
         Set<ConstraintViolation<UserDTO>> nullCheck = validator.validate(dto);
@@ -152,7 +156,7 @@ public class UserDTOTest extends AbstractDTOTest {
     }
 
     @Test
-    public void testSizePhoneValidation(){
+    public void testSizePhoneValidation() {
         UserDTO dto = generateValidDTO();
         dto.setPhone(RandomStringUtils.random(251));
         Set<ConstraintViolation<UserDTO>> violations = validator.validate(dto);
