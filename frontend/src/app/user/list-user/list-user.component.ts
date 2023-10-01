@@ -21,4 +21,10 @@ export class ListUserComponent implements OnInit {
       this.listUsers = listUsers;
     })
   }
+
+  delete(id : number) {
+    this.service.delete(id).subscribe(() => {
+      this.ngOnInit();
+    })
+  }
 }
