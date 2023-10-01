@@ -1,9 +1,7 @@
 package com.veiculos.api.repository;
 
 import com.veiculos.api.model.User;
-import org.springframework.data.domain.Example;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.security.core.userdetails.UserDetails;
 
 /**
  * Repository for the User entity
