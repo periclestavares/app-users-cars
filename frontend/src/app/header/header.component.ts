@@ -1,3 +1,4 @@
+import { TokenService } from './../authentication/token.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private tokenService : TokenService) { }
 
   ngOnInit(): void {
+  }
+
+  existsToken(){
+    return this.tokenService.existsToken();
+  }
+
+  logout(){
+    return this.tokenService.logout();
   }
 
 }

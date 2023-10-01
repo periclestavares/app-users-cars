@@ -1,9 +1,9 @@
 <header>
   <h1>Aplicação de cadastro de Usuários e Carros</h1>
-  <button>Entrar</button>
+  <button routerLink="/signIn" >Entrar</button>
   <button routerLink="/listUser">Usuários</button>
-  <div style="display: inline;">
-    <button>Carros</button>
-    <button>Logout</button>
+  <div style="display: inline;" *ngIf="existsToken()">
+    <button routerLink="/listCar">Carros</button>
+    <button  (click)="logout()">Logout</button>
   </div>
 </header>

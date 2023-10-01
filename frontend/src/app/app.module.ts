@@ -10,6 +10,7 @@ import { ListUserComponent } from './user/list-user/list-user.component';
 import { CreateUserComponent } from './user/create-user/create-user.component';
 import { ErrorInterceptor } from './interceptors/error-interceptor';
 import { EditUserComponent } from './user/edit-user/edit-user.component';
+import { SignInComponent } from './authentication/sign-in/sign-in.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { EditUserComponent } from './user/edit-user/edit-user.component';
     HeaderComponent,
     ListUserComponent,
     CreateUserComponent,
-    EditUserComponent
+    EditUserComponent,
+    SignInComponent
   ],
   imports: [
     BrowserModule,
