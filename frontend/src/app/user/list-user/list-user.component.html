@@ -1,0 +1,25 @@
+<h3>Usuários</h3>
+<button style="margin-bottom: 10px;" routerLink="/createUser">Cadastrar</button>
+<table>
+  <tr>
+    <th>Nome</th>
+    <th>Sobrenome</th>
+    <th>E-mail</th>
+    <th>Data de Nascimento</th>
+    <th>Login</th>
+    <th>Telefone</th>
+    <th></th>
+  </tr>
+  <tr *ngFor="let user of listUsers">
+    <td>{{user.firstName}}</td>
+    <td>{{user.lastName}}</td>
+    <td>{{user.email}}</td>
+    <td>{{user.birthday}}</td>
+    <td>{{user.login}}</td>
+    <td>{{user.phone}}</td>
+    <td>
+      <button>Atualizar</button>
+      <button>Excluir</button>
+    </td>
+  </tr>
+</table>
