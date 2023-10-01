@@ -1,0 +1,33 @@
+<h3>Cadastrar Carro</h3>
+<form>
+  <label for="carYear">Ano</label>
+  <input
+    name="carYear"
+    type="number"
+    [(ngModel)]="car.carYear"
+  >
+  <br/>
+  <label for="licensePlate">Placa</label>
+  <input
+    name="licensePlate"
+    type="text"
+    [(ngModel)]="car.licensePlate"
+  >
+  <br/>
+  <label for="model">Modelo</label>
+  <input
+    name="model"
+    type="text"
+    [(ngModel)]="car.model"
+  >
+  <br/>
+  <label for="color">Cor</label>
+  <input
+    name="color"
+    type="text"
+    [(ngModel)]="car.color"
+  >
+  <br/>
+  <button (click)="add()" class="botao">Save</button>
+  <button (click)="cancel()" class="botao">Cancel</button>
+</form>

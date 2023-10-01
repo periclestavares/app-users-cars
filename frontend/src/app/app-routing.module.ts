@@ -6,6 +6,7 @@ import { EditUserComponent } from './user/edit-user/edit-user.component';
 import { SignInComponent } from './authentication/sign-in/sign-in.component';
 import { authGuard } from './guards/auth-guard';
 import { ListCarComponent } from './car/list-car/list-car.component';
+import { CreateCarComponent } from './car/create-car/create-car.component';
 
 const routes: Routes = [
   {
@@ -27,6 +28,11 @@ const routes: Routes = [
   {
     path: 'listCar',
     component: ListCarComponent,
+    canActivate: [authGuard]
+  },
+  {
+    path: 'createCar',
+    component: CreateCarComponent,
     canActivate: [authGuard]
   },
 ];

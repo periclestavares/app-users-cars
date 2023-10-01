@@ -13,6 +13,7 @@ import { CreateUserComponent } from './user/create-user/create-user.component';
 import { EditUserComponent } from './user/edit-user/edit-user.component';
 import { ListUserComponent } from './user/list-user/list-user.component';
 import { AuthenticationInterceptor } from './interceptors/authentication-interceptor';
+import { CreateCarComponent } from './car/create-car/create-car.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { AuthenticationInterceptor } from './interceptors/authentication-interce
     CreateUserComponent,
     EditUserComponent,
     SignInComponent,
-    ListCarComponent
+    ListCarComponent,
+    CreateCarComponent
   ],
   imports: [
     BrowserModule,
