@@ -21,4 +21,9 @@ export class CarService {
   add(car: Car): Observable<Car> {
     return this.http.post<Car>(this.API, car)
   }
+
+  delete(id: number): Observable<Car> {
+    const url = `${this.API}/${id}`
+    return this.http.delete<Car>(url)
+  }
 }

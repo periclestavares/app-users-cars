@@ -6,14 +6,14 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SignInComponent } from './authentication/sign-in/sign-in.component';
+import { CreateCarComponent } from './car/create-car/create-car.component';
 import { ListCarComponent } from './car/list-car/list-car.component';
 import { HeaderComponent } from './header/header.component';
+import { AuthenticationInterceptor } from './interceptors/authentication-interceptor';
 import { ErrorInterceptor } from './interceptors/error-interceptor';
 import { CreateUserComponent } from './user/create-user/create-user.component';
 import { EditUserComponent } from './user/edit-user/edit-user.component';
 import { ListUserComponent } from './user/list-user/list-user.component';
-import { AuthenticationInterceptor } from './interceptors/authentication-interceptor';
-import { CreateCarComponent } from './car/create-car/create-car.component';
 
 @NgModule({
   declarations: [

@@ -23,4 +23,10 @@ export class ListCarComponent implements OnInit {
     })
   }
 
+  delete(id : number) {
+    this.service.delete(id).subscribe(() => {
+      this.ngOnInit();
+    })
+  }
+
 }
